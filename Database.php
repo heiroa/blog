@@ -7,12 +7,12 @@
 
         public function getConnection(){
             try{
-                $connection = new PDO(Database::DB_HOST, Database::DB_USER, Database::DB_PASS);
+                $connection = new PDO(self::DB_HOST, self::DB_USER, self::DB_PASS);
                 $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-                return 'Connection OK';
-            }catch(Exception $errorConnection){
-                die('Erreur de connection :'.$errorConnection -> getMessage());
+                return $connection;
+            }
+            catch(Exception $errorConnection){
+                die ('Erreur de connection :'.$errorConnection->getMessage());
             }
         }
     }
